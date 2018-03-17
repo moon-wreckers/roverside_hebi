@@ -8,52 +8,52 @@ manipulator control utilities for the rovers with HEBI actuators.
 
 Please refer to the below setup and installation process:
 
-    1. Clone this repository to your catkin workspace
+1. Clone this repository to your catkin workspace
 
-    2. Skim the HEBI document for basic understanding at
-       http://docs.hebi.us/tools.html#Tools_APIs
+2. Skim the HEBI document for basic understanding at
+ http://docs.hebi.us/tools.html#Tools_APIs
 
-    3. Download the HEBI python tool from https://pypi.python.org/pypi/hebi-py
+3. Download the HEBI python tool from https://pypi.python.org/pypi/hebi-py
 
-    4. Extract the installation package and build it using the below commands
+4. Extract the installation package and build it using the below commands
 
-       ```
-       tar -xf hebi-py-*.tar.gz
-       cd Hebi-py-*
-       python setup.py build
-       ```
+ ```
+ tar -xf hebi-py-*.tar.gz
+ cd Hebi-py-*
+ python setup.py build
+ ```
 
-       You can also use the help command for more options
+ You can also use the help command for more options
 
-       ```
-       python setup.py --help
-       ```
+ ```
+ python setup.py --help
+ ```
 
-    5. Install the package
+5. Install the package
 
-       ```
-       sudo python setup.py install
-       ```
+ ```
+ sudo python setup.py install
+ ```
 
-    6. Verify the installation by importing the HEBI module in python
-       environment
+6. Verify the installation by importing the HEBI module in python
+ environment
 
-       ```
-       python
-       >>> import hebi
-       ```
+ ```
+ python
+ >>> import hebi
+ ```
 
-       If no error pops up, then the python tool package installation is done
+ If no error pops up, then the python tool package installation is done
 
-    7. (Optional) To check if the HEBI hardware is actually working, first
-       connect the HEBI actuators and your computer to the same network
-       environment, and the go to the `test` directory in the cloned repository
-       to run the test script
+7. (Optional) To check if the HEBI hardware is actually working, first
+ connect the HEBI actuators and your computer to the same network
+ environment, and the go to the `test` directory in the cloned repository
+ to run the test script
 
-       ```
-       roscd roverside_hebi/test
-       python hebi_test.py
-       ```
+ ```
+ roscd roverside_hebi/test
+ python hebi_test.py
+ ```
 
 ## Copyright
 
