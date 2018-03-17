@@ -3,21 +3,62 @@
 Roverside Assistance project HEBI claw manipulator package provides claw
 manipulator control utilities for the rovers with HEBI actuators.
 
-Setup and installation process (for commit hash code - 5df4e76):
 
-1. Clone this repository
-2. Visit: http://docs.hebi.us/tools.html#Tools_APIs
-3. Check the python Tool chai (link: https://pypi.python.org/pypi/hebi-py)
-4. Download the hebi package
-5. extact the tar ball (tar -xf hebi-py-*.tar.gz)
-6. cd Hebi-py-*
-7. Build the package "python setup.py build".
-Check python setup.py --help for more options
-8. Install the package (requires admin. persmissions) "sudo python setup.py install"
-9. All done! - installation complete
-10. An external test would be the following:
-10.1. ipython
-10.2. in the ipython terminal "import hebi" - if successful - installation is a success. 
-11. Migrate to the roverside_hebi package (cloned above).
-12. Further to the test "cd test"
-13. run "./hebi_test.py"
+## Setup and Installation
+
+Please refer to the below setup and installation process:
+
+    1. Clone this repository to your catkin workspace
+
+    2. Skim the HEBI document for basic understanding at
+       http://docs.hebi.us/tools.html#Tools_APIs
+
+    3. Download the HEBI python tool from https://pypi.python.org/pypi/hebi-py
+
+    4. Extract the installation package and build it using the below commands
+
+       ```
+       tar -xf hebi-py-*.tar.gz
+       cd Hebi-py-*
+       python setup.py build
+       ```
+
+       You can also use the help command for more options
+
+       ```
+       python setup.py --help
+       ```
+
+    5. Install the package
+
+       ```
+       sudo python setup.py install
+       ```
+
+    6. Verify the installation by importing the HEBI module in python
+       environment
+
+       ```
+       python
+       >>> import hebi
+       ```
+
+       If no error pops up, then the python tool package installation is done
+
+    7. (Optional) To check if the HEBI hardware is actually working, first
+       connect the HEBI actuators and your computer to the same network
+       environment, and the go to the `test` directory in the cloned repository
+       to run the test script
+
+       ```
+       roscd roverside_hebi/test
+       python hebi_test.py
+       ```
+
+## Copyright
+
+Below is the list of authors and copyright information.
+
+    * __Dicong Qiu__ (dq@cs.cmu.edu, http://www.davidqiu.com/)
+
+Copyright (C) 2018, Moon Wreckers. All rights reserved.
