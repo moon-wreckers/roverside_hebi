@@ -57,7 +57,7 @@ Please refer to the below setup and installation process:
 
 ## Copyright
 
-Below is the list of authors and copyright information.
+Below are the list of authors and copyright information.
 
 * __Dicong Qiu__ (dq@cs.cmu.edu, http://www.davidqiu.com/)
 
