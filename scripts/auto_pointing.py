@@ -23,7 +23,7 @@ import time
 import numpy as np
 
 MOCK_TEST = False
-TWO_POINT_TEST = True
+TWO_POINT_TEST = False
 
 
 def sin(x):
@@ -60,7 +60,7 @@ def auto_pointing():
 
     hebi_modules = [('arm', 'joint_0'), ('arm', 'joint_1')]
 
-    theta_bounds = [[-1.5, 1.5], [-0.1, 0.6]]
+    theta_bounds = [[-1.5, 1.5], [-0.15, 0.6]]
     motion_bound = 0.05
 
     # discover HEBI modules
@@ -115,16 +115,18 @@ def auto_pointing():
             else:
                 x_c = [2,-2,0.5]
 
-        # find gradient
-        d_theta = np.array([calc_d_theta1(theta[0], theta[1], x_c[0], x_c[1], x_c[2]),
-                            calc_d_theta2(theta[0], theta[1], x_c[0], x_c[1], x_c[2])])
-
-        # update desired theta
-        for i_dim in range(len(d_theta)):
-            d_theta[i_dim] = max(-motion_bound, min(motion_bound, d_theta[i_dim]))
-        theta = theta - d_theta * update_alpha
-        for i_dim in range(len(theta)):
-            theta[i_dim] = max(theta_bounds[i_dim][0], min(theta_bounds[i_dim][1], theta[i_dim]))
+        # loop for gradient descent
+        for t_gd in range(20):
+            # find gradient
+            d_theta = np.array([calc_d_theta1(theta[0], theta[1], x_c[0], x_c[1], x_c[2]),
+                                calc_d_theta2(theta[0], theta[1], x_c[0], x_c[1], x_c[2])])
+            print(d_theta)
+            # update desired theta
+            for i_dim in range(len(d_theta)):
+                d_theta[i_dim] = max(-motion_bound, min(motion_bound, d_theta[i_dim]))
+            theta = theta - d_theta * update_alpha
+            for i_dim in range(len(theta)):
+                theta[i_dim] = max(theta_bounds[i_dim][0], min(theta_bounds[i_dim][1], theta[i_dim]))
 
         # send command to HEBI control group
         if not MOCK_TEST:
