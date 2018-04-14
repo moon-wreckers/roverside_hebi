@@ -77,7 +77,7 @@ def auto_pointing():
         except (tf.LookupException, tf.ConnectivityException, tf.ExtrapolationException):
             continue
 
-            (x, y, z) = [T_ak1_ring[0], T_ak1_ring[1], T_ak1_ring[2]]
+        (x, y, z) = [T_ak1_ring[0], T_ak1_ring[1], T_ak1_ring[2]]
 
         d3 = z - VERT_MOTOR_OFFSET
         # rospy.logwarn("d3: " + str(d3))
@@ -85,7 +85,7 @@ def auto_pointing():
 
         theta[1] = np.arctan2(d3, CLAW_ARM_LENGTH)
         phi = np.arctan2(HORZ_MOTOR_OFFSET, CLAW_ARM_LENGTH * np.cos(theta[1]))
-        theta[0] = np.arctan2(y, x) - phi
+        theta[0] = np.arctan2(y, x) + phi
 
         for i_dim in range(len(theta)):
             theta[i_dim] = max(theta_bounds[i_dim][0], min(theta_bounds[i_dim][1], theta[i_dim]))
