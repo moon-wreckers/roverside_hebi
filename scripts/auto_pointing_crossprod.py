@@ -1,8 +1,9 @@
 #!/usr/bin/env python
 
 """
-auto_pointing.py
-Automatically pointing the claw manipulator towards the companion rover ring.
+auto_pointing_crossprod.py
+Automatically pointing the claw manipulator towards the companion rover ring,
+using cross product metric.
 """
 
 __version__     = "0.0.1"
