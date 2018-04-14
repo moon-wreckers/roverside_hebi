@@ -1,5 +1,4 @@
 #!/usr/bin/env python
-
 """
 auto_pointing.py
 Automatically pointing the claw manipulator towards the companion rover ring.
@@ -82,10 +81,12 @@ def auto_pointing():
         d3 = z - VERT_MOTOR_OFFSET
         # rospy.logwarn("d3: " + str(d3))
         # rospy.logwarn("theta1: " + str(np.arctan2(d3, CLAW_ARM_LENGTH)))
-
+# np.sign(y) *
         theta[1] = np.arctan2(d3, CLAW_ARM_LENGTH)
         phi = np.arctan2(HORZ_MOTOR_OFFSET, CLAW_ARM_LENGTH * np.cos(theta[1]))
         theta[0] = np.arctan2(y, x) + phi
+        print("atan2+phi" + str(180 * (np.arctan2(y, x) + phi) / np.pi))
+        print("atan2-phi" + str(180 * (np.arctan2(y, x) - phi) / np.pi))
 
         for i_dim in range(len(theta)):
             theta[i_dim] = max(theta_bounds[i_dim][0], min(theta_bounds[i_dim][1], theta[i_dim]))
